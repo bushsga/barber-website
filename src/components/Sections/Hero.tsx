@@ -21,7 +21,7 @@ export default function Hero() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          Premium Barber Experience in Lagos
+          Premium Barber Experience in NEW YORK
         </h1>
         <p className="text-xl mb-8 max-w-2xl mx-auto">
           Where style meets precision. Experience the best grooming services with our expert barbers.

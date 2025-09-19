@@ -19,7 +19,7 @@ export default function Contact() {
             Visit <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">Our Studio</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Experience premium grooming at our luxury barber studio in the heart of Lagos
+            Experience premium grooming at our luxury barber studio in the heart of NEW YORK
           </p>
         </div>
 
@@ -40,8 +40,8 @@ export default function Contact() {
             {/* Address */}
             <div className="text-center">
               <h4 className="font-semibold text-gray-900 mb-3 text-lg">📍 Studio Address</h4>
-              <p className="text-gray-700">123 Premium Plaza, Victoria Island</p>
-              <p className="text-gray-700">Lagos, Nigeria</p>
+              <p className="text-gray-700">123 Madison Avenue, NY 10016</p>
+              <p className="text-gray-700">NEW YORK, USA</p>
               <p className="text-sm text-gray-500 mt-2">Easy parking available • Central location</p>
             </div>
 
@@ -58,7 +58,7 @@ export default function Contact() {
             {/* Contact */}
             <div className="text-center">
               <h4 className="font-semibold text-gray-900 mb-3 text-lg">📞 Get In Touch</h4>
-              <p className="text-blue-600 font-semibold text-xl mb-2">+234 812 345 6789</p>
+              <p className="text-blue-600 font-semibold text-xl mb-2">+1 812 345 6789</p>
               <p className="text-gray-600">Call or WhatsApp for appointments</p>
             </div>
           </div>

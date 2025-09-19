@@ -125,7 +125,7 @@ export default function About() {
               </p>
               
               <p className="text-gray-700 text-lg leading-relaxed">
-                Founded in 2020, we've redefined the grooming experience for thousands of discerning clients across Lagos. 
+                Founded in 2020, we've redefined the grooming experience for thousands of discerning clients across NEW YORK. 
                 Our commitment to <span className="font-semibold">precision, excellence, and unparalleled service</span> has 
                 established us as the premier destination for those who demand nothing but the best.
               </p>

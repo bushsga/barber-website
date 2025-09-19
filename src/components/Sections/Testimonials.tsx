@@ -5,27 +5,27 @@ import TestimonialCard from '@/components/UI/TestimonialCard';
 
 const testimonials = [
   {
-    name: "John Adekunle",
+    name: "John Doe",
     role: "Regular Client",
-    comment: "Best barber in Lagos! The consistency in quality service keeps me coming back every two weeks. Their attention to detail is unmatched in the city.",
+    comment: "Best barber in NEW YORK! The consistency in quality service keeps me coming back every two weeks. Their attention to detail is unmatched in the city.",
     rating: 5
   },
   {
-    name: "Chinedu Okoro",
+    name: "Micheal Lee",
     role: "Business Executive",
     comment: "As someone who meets clients daily, my appearance is crucial. CraftedCuts gives me the confidence to walk into any meeting knowing I look my absolute best.",
     rating: 5
   },
   {
-    name: "Emmanuel Musa",
-    role: "University Student",
+    name: "James Johnson",
+    role: "College Student",
     comment: "Finally found a barber that offers premium quality at student-friendly prices. The value for money is incredible compared to other places I've tried.",
     rating: 4
   },
   {
     name: "David Thompson",
     role: "Bank Manager",
-    comment: "The royal treatment package is worth every naira. The massage and premium products make it more than a haircut - it's a therapeutic experience.",
+    comment: "The royal treatment package is worth every cent. The massage and premium products make it more than a haircut - it's a therapeutic experience.",
     rating: 5
   }
 ];

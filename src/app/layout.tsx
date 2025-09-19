@@ -1,12 +1,14 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter } from '@next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'CraftedCuts Barber Shop',
-  description: 'Premium barber services in Lagos, Nigeria',
+  description: 'Premium grooming services in NEW YORK, USA',
 };
 
 export default function RootLayout({
@@ -16,7 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+      </body>
     </html>
   );
 }

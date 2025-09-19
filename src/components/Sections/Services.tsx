@@ -6,28 +6,28 @@ const services = [
   {
     title: "Classic Haircut",
     description: "Professional haircut with precision styling and premium finishing",
-    price: "₦2,500",
+    price: "$2,500",
     duration: "30 min",
     popular: false
   },
   {
     title: "Beard Grooming", 
     description: "Expert beard shaping with hot towel treatment and beard oil",
-    price: "₦1,800",
+    price: "$1,800",
     duration: "25 min",
     popular: false
   },
   {
     title: "Executive Package",
     description: "Complete haircut & beard grooming with scalp massage",
-    price: "₦4,500",
+    price: "$4,500",
     duration: "60 min",
     popular: true
   },
   {
     title: "Royal Treatment",
     description: "Full luxury experience with premium product treatment",
-    price: "₦6,500",
+    price: "$6,500",
     duration: "75 min",
     popular: false
   }

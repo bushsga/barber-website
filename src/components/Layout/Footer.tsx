@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Logo/Brand */}
           <h3 className="text-2xl font-bold text-white mb-4">CraftedCuts</h3>
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-            Premium grooming services redefining the barber experience in Lagos
+            Premium grooming services redefining the barber experience in NEW YORK
           </p>
 
           {/* Social Media Icons */}
@@ -70,14 +70,14 @@ export default function Footer() {
               &copy; 2024 CraftedCuts Barber Shop. All rights reserved.
             </p>
             <p className="text-gray-400 text-xs mt-2">
-              Premium grooming services in Lagos, Nigeria
+              Premium grooming services in NEW YORK, USA
             </p>
           </div>
 
           {/* Optional: Business Info */}
           <div className="mt-4 text-gray-400 text-xs">
-            <p>123 Premium Plaza, Victoria Island, Lagos</p>
-            <p className="mt-1">+234 812 345 6789</p>
+            <p>123 Madison Avenue, NEW YORK, NY 10016, USA</p>
+            <p className="mt-1">+1 812 345 6789</p>
           </div>
         </div>
       </div>
