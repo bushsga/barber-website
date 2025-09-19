@@ -8,9 +8,6 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // IGNORES ALL ESLINT ERRORS
   },
-  images: {
-    domains: ['images.unsplash.com', 'img.freepik.com'],
-  },
 }
 
 export default nextConfig
