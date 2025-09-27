@@ -4,59 +4,67 @@ import ServiceCard from '@/components/UI/ServiceCard';
 
 const services = [
   {
-    title: "Classic Haircut",
-    description: "Professional haircut with precision styling and premium finishing",
-    price: "$20",
-    duration: "30 min",
-    popular: false
-  },
-  {
-    title: "Facial Treatments", 
-    description: "deep cleansing or exfoliation for healthy skin",
-    price: "$50",
-    duration: "25 min",
-    popular: false
-  },
-  {
-    title: "Executive Package",
-    description: "Complete haircut & facial treatment with scalp massage",
-    price: "$80",
-    duration: "60 min",
+    title: "Individual Therapy",
+    description: "One-on-one sessions tailored to your personal needs and goals",
+    price: "$120",
+    duration: "50 min",
     popular: true
   },
   {
-    title: "Royal Treatment",
-    description: "Full luxury experience with premium product treatment",
-    price: "$60",
-    duration: "75 min",
+    title: "Couples Counseling", 
+    description: "Improve communication and strengthen your relationship",
+    price: "$150",
+    duration: "60 min",
+    popular: false
+  },
+  {
+    title: "Anxiety Treatment",
+    description: "Evidence-based techniques to manage anxiety and stress",
+    price: "$120",
+    duration: "50 min",
+    popular: true
+  },
+  {
+    title: "Trauma Therapy",
+    description: "Specialized care for healing from traumatic experiences",
+    price: "$140",
+    duration: "50 min",
     popular: false
   }
 ];
 
 export default function Services() {
-  // Replace with your actual Instagram URL
-  const instagramUrl = "https://instagram.com/yourbarbershop";
+  const calendlyUrl = "https://calendly.com/ibrahimjamiuakeem/30min";
+
+  const handleBookConsultation = () => {
+    window.open(calendlyUrl, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleViewResources = () => {
+    // Could link to blog, resources page, or professional profile
+    window.open('#resources', '_self');
+  };
 
   return (
-    <section id="services" className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-5 lg:px-8">
-        {/* Sleek Header */}
-        <div className="text-center mb-10 md:mb-12">
+    <section id="services" className="py-10 md:py-14 bg-gradient-to-br from-teal-50 to-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-5 lg:px-6">
+        {/* Header Section */}
+        <div className="text-center mb-8 md:mb-10">
           <div className="inline-flex items-center justify-center mb-3">
-            <div className="w-6 md:w-8 h-0.5 bg-amber-500 mr-2"></div>
-            <span className="text-amber-600 font-semibold text-xs uppercase tracking-wider">Our Services</span>
-            <div className="w-6 md:w-8 h-0.5 bg-amber-500 ml-2"></div>
+            <div className="w-6 md:w-8 h-0.5 bg-teal-500 mr-2"></div>
+            <span className="text-teal-600 font-semibold text-xs uppercase tracking-wider">Our Services</span>
+            <div className="w-6 md:w-8 h-0.5 bg-teal-500 ml-2"></div>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4">
-            Premium Grooming Services
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+            Professional Therapy Services
           </h2>
           <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-2">
-            Experience precision grooming with our expert barbers and premium products.
+            Evidence-based mental health care tailored to your unique journey and needs.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        {/* Services Grid - Mobile First */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {services.map((service, index) => (
             <ServiceCard
               key={index}
@@ -69,30 +77,57 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Compact Call-to-Action */}
-        <div className="text-center mt-10 md:mt-12 bg-gradient-to-r from-blue-900 to-blue-800 rounded-xl p-6 md:p-8 shadow-lg mx-2 md:mx-0">
-          <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">
-            Ready for Your Transformation?
+        {/* Call-to-Action Section */}
+        <div className="text-center mt-8 md:mt-10 bg-gradient-to-r from-teal-700 to-teal-800 rounded-lg p-4 md:p-6 shadow-lg mx-1 md:mx-0">
+          <h3 className="text-lg md:text-xl font-bold text-white mb-2">
+            Ready to Begin Your Healing Journey?
           </h3>
-          <p className="text-blue-100 text-xs md:text-sm mb-4 md:mb-6 max-w-xl mx-auto">
-            Book your appointment today and experience the CraftedCuts difference.
+          <p className="text-teal-100 text-xs md:text-sm mb-3 md:mb-4 max-w-xl mx-auto">
+            Take the first step toward mental wellness with a confidential consultation.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+          
+          {/* Emergency Notice for Mobile */}
+          <div className="bg-red-600/90 rounded-lg p-2 mb-3 md:hidden">
+            <p className="text-white text-xs font-medium">
+              <strong>Emergency?</strong> Call 988 for immediate support
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3">
             <button 
-              onClick={() => window.open('https://calendly.com/ibrahimjamiuakeem/30min', '_blank')}
-              className="bg-amber-500 text-white px-5 py-2 rounded-lg font-semibold text-sm hover:bg-amber-600 transition duration-300"
+              onClick={handleBookConsultation}
+              className="bg-white text-teal-700 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-teal-50 transition-all duration-200 active:scale-95 flex-1 sm:flex-none"
             >
-              Book Consultation
+              Schedule Consultation
             </button>
             
-            {/* FUNCTIONAL Gallery Button - Opens Instagram */}
             <button 
-              onClick={() => window.open(instagramUrl, '_blank')}
-              className="border border-white text-white px-5 py-2 rounded-lg font-semibold text-sm hover:bg-white hover:text-blue-900 transition duration-300"
+              onClick={handleViewResources}
+              className="border border-white text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-white/10 transition-all duration-200 active:scale-95 flex-1 sm:flex-none"
             >
-              View Our Gallery
+              View Resources
             </button>
           </div>
+
+          {/* Additional Info */}
+          <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-teal-200 max-w-md mx-auto md:mt-4">
+            <div className="flex items-center justify-center">
+              <span className="mr-1">✓</span> Licensed Therapists
+            </div>
+            <div className="flex items-center justify-center">
+              <span className="mr-1">✓</span> Insurance Accepted
+            </div>
+            <div className="flex items-center justify-center col-span-2">
+              <span className="mr-1">✓</span> Virtual Sessions Available
+            </div>
+          </div>
+        </div>
+
+        {/* Insurance Information */}
+        <div className="mt-6 text-center">
+          <p className="text-gray-600 text-xs md:text-sm">
+            Most major insurance plans accepted • Sliding scale available • Free initial consultation
+          </p>
         </div>
       </div>
     </section>

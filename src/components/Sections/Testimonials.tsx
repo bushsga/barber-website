@@ -1,74 +1,59 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import TestimonialCard from '@/components/UI/TestimonialCard';
 
 const testimonials = [
   {
-    name: "John Doe",
-    role: "Regular Client",
-    comment: "Best barber in NEW YORK! The consistency in quality service keeps me coming back every two weeks. Their attention to detail is unmatched in the city.",
+    name: "Sarah M.",
+    role: "Therapy Client",
+    comment: "The compassionate care I received at SerenityTherapy transformed my life. My therapist helped me develop tools to manage anxiety that I use every day.",
     rating: 5
   },
   {
-    name: "Micheal Lee",
-    role: "Business Executive",
-    comment: "As someone who meets clients daily, my appearance is crucial. CraftedCuts gives me the confidence to walk into any meeting knowing I look my absolute best.",
+    name: "Michael R.",
+    role: "Couples Counseling",
+    comment: "We were on the verge of separation when we started couples therapy. The guidance we received helped us rebuild our communication and connection.",
     rating: 5
   },
   {
-    name: "James Johnson",
-    role: "College Student",
-    comment: "Finally found a barber that offers premium quality at student-friendly prices. The value for money is incredible compared to other places I've tried.",
-    rating: 4
+    name: "Jennifer K.",
+    role: "Anxiety Treatment",
+    comment: "After years of struggling with anxiety, I finally found relief through evidence-based techniques. The supportive environment made all the difference.",
+    rating: 5
   },
   {
-    name: "David Thompson",
-    role: "Bank Manager",
-    comment: "The royal treatment package is worth every cent. The massage and premium products make it more than a haircut - it's a therapeutic experience.",
+    name: "David T.",
+    role: "Trauma Therapy",
+    comment: "The trauma-focused approach helped me process experiences I'd carried for decades. I feel like I have my life back thanks to this practice.",
     rating: 5
   }
 ];
 
 export default function Testimonials() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  // Animation for numbers
+  // Simplified animation states
   const [retention, setRetention] = useState(0);
   const [rating, setRating] = useState(0);
   const [reviews, setReviews] = useState(0);
 
-  // Your Calendly URL
   const calendlyUrl = "https://calendly.com/ibrahimjamiuakeem/30min";
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          
-          // Animate numbers when section is visible
-          if (isVisible) {
-            animateNumber(98, setRetention, 2000);
-            animateNumber(4.9, setRating, 2000, 1); // 1 decimal place
-            animateNumber(500, setReviews, 2000);
-          }
-        }
-      },
-      { threshold: 0.3 }
-    );
+    // Simple timeout instead of complex observers
+    const timer = setTimeout(() => {
+      animateNumber(95, setRetention, 1500);
+      animateNumber(4.9, setRating, 1500, 1);
+      animateNumber(200, setReviews, 1500);
+    }, 300);
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    return () => clearTimeout(timer);
+  }, []);
 
-    return () => observer.disconnect();
-  }, [isVisible]);
-
+  // Simplified animation function
   const animateNumber = (target: number, setter: React.Dispatch<React.SetStateAction<number>>, duration: number, decimals: number = 0) => {
     let start = 0;
-    const increment = target / (duration / 16); // 60fps
+    const steps = duration / 50; // 50ms intervals for better performance
+    const increment = target / steps;
     
     const timer = setInterval(() => {
       start += increment;
@@ -79,37 +64,37 @@ export default function Testimonials() {
         const value = decimals === 0 ? Math.floor(start) : parseFloat(start.toFixed(decimals));
         setter(value);
       }
-    }, 16);
+    }, 50);
   };
 
-  const handleBookAppointment = () => {
-    window.open(calendlyUrl, '_blank');
+  const handleBookConsultation = () => {
+    window.open(calendlyUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <section ref={sectionRef} id="testimonials" className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-10 left-10 w-48 h-48 bg-amber-100 rounded-full opacity-20 blur-3xl"></div>
-      <div className="absolute bottom-10 right-10 w-48 h-48 bg-blue-100 rounded-full opacity-20 blur-3xl"></div>
+    <section id="testimonials" className="py-12 md:py-16 bg-gradient-to-br from-teal-50 to-white relative overflow-hidden">
+      {/* Simplified decorative elements */}
+      <div className="absolute top-4 left-4 w-32 h-32 bg-teal-100 rounded-full opacity-20 sm:top-10 sm:left-10 sm:w-48 sm:h-48"></div>
+      <div className="absolute bottom-4 right-4 w-32 h-32 bg-blue-100 rounded-full opacity-20 sm:bottom-10 sm:right-10 sm:w-48 sm:h-48"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Premium Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center mb-4">
-            <div className="w-12 h-0.5 bg-amber-500 mr-3"></div>
-            <span className="text-amber-600 font-semibold text-sm uppercase tracking-wider">Testimonials</span>
-            <div className="w-12 h-0.5 bg-amber-500 ml-3"></div>
+        {/* Header Section */}
+        <div className="text-center mb-10 md:mb-12">
+          <div className="inline-flex items-center justify-center mb-3">
+            <div className="w-8 h-0.5 bg-teal-500 mr-2 sm:w-12 sm:mr-3"></div>
+            <span className="text-teal-600 font-semibold text-xs uppercase tracking-wider">Client Stories</span>
+            <div className="w-8 h-0.5 bg-teal-500 ml-2 sm:w-12 sm:ml-3"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Voices of <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">Satisfaction</span>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 sm:text-4xl">
+            Stories of <span className="bg-gradient-to-r from-teal-600 to-teal-500 bg-clip-text text-transparent">Healing & Growth</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover why our clients keep coming back to experience the CraftedCuts difference
+          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-2 sm:text-xl">
+            Discover how our clients have transformed their lives through compassionate therapy
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Testimonials Grid - Mobile First */}
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={index}
@@ -121,58 +106,65 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Trust Indicators with Animated Numbers */}
-        <div className="text-center mt-16">
-          <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Join Our Growing Community of Satisfied Clients
+        {/* Trust Indicators */}
+        <div className="text-center mt-10 md:mt-12">
+          <div className="bg-white rounded-xl p-4 shadow-lg border border-gray-100 sm:rounded-2xl sm:p-6">
+            <h3 className="text-lg font-bold text-gray-900 mb-4 sm:text-xl md:text-2xl">
+              Trusted Mental Health Care in New York
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 sm:grid-cols-4">
               <div className="text-center">
-                <div className="text-3xl font-bold text-amber-600 mb-2">
+                <div className="text-2xl font-bold text-teal-600 mb-1 sm:text-3xl">
                   {retention}%
                 </div>
-                <div className="text-sm text-gray-600">Client Retention</div>
+                <div className="text-xs text-gray-600 sm:text-sm">Client Satisfaction</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-amber-600 mb-2">
+                <div className="text-2xl font-bold text-teal-600 mb-1 sm:text-3xl">
                   {rating}★
                 </div>
-                <div className="text-sm text-gray-600">Average Rating</div>
+                <div className="text-xs text-gray-600 sm:text-sm">Average Rating</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-amber-600 mb-2">
+                <div className="text-2xl font-bold text-teal-600 mb-1 sm:text-3xl">
                   {reviews}+
                 </div>
-                <div className="text-sm text-gray-600">5-Star Reviews</div>
+                <div className="text-xs text-gray-600 sm:text-sm">Success Stories</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-amber-600 mb-2">24/7</div>
-                <div className="text-sm text-gray-600">Support</div>
+                <div className="text-2xl font-bold text-teal-600 mb-1 sm:text-3xl">24/7</div>
+                <div className="text-xs text-gray-600 sm:text-sm">Crisis Support</div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* CTA Section - NOW WITH FUNCTIONAL BUTTON */}
-        <div className="text-center mt-12">
-          <div className="bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">
-              Ready to Experience the Difference?
+        {/* CTA Section */}
+        <div className="text-center mt-8 md:mt-10">
+          <div className="bg-gradient-to-r from-teal-600 to-teal-700 rounded-xl p-4 text-white sm:rounded-2xl sm:p-6">
+            <h3 className="text-lg font-bold mb-3 sm:text-xl md:text-2xl">
+              Ready to Start Your Healing Journey?
             </h3>
-            <p className="text-amber-100 mb-6 max-w-2xl mx-auto">
-              Join hundreds of satisfied clients who have transformed their grooming experience with CraftedCuts
+            <p className="text-teal-100 mb-4 max-w-2xl mx-auto text-sm sm:text-base">
+              Take the first step toward mental wellness with a confidential consultation
             </p>
             <button 
-              onClick={handleBookAppointment}
-              className="bg-white text-amber-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105"
+              onClick={handleBookConsultation}
+              className="bg-white text-teal-700 px-6 py-2 rounded-full font-semibold text-sm hover:bg-teal-50 transition-all duration-200 active:scale-95 sm:px-8 sm:py-3 sm:text-base"
             >
-              Book Your Appointment
+              Schedule Consultation
             </button>
-            <p className="text-amber-100 text-sm mt-3">
-              Instant booking • Professional service • Premium experience
+            <p className="text-teal-100 text-xs mt-2 sm:text-sm">
+              Confidential • Professional • Compassionate Care
             </p>
           </div>
+        </div>
+
+        {/* Confidentiality Notice */}
+        <div className="mt-6 text-center">
+          <p className="text-gray-500 text-xs sm:text-sm">
+            *Client names changed to protect confidentiality. All testimonials used with permission.
+          </p>
         </div>
       </div>
     </section>

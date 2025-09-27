@@ -8,20 +8,46 @@ interface BookingButtonProps {
 
 export default function BookingButton({ 
   calendlyUrl, 
-  buttonText = "Book Now",
-  className = "bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700"
+  buttonText = "Schedule Consultation",
+  className = "bg-teal-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-teal-700 transition-colors duration-200 active:scale-95"
 }: BookingButtonProps) {
   
   const handleClick = () => {
-    console.log("✅ Button clicked! URL:", calendlyUrl);
-    // Simple test - open in new tab
-    window.open(calendlyUrl, '_blank');
+    // Enhanced logging for debugging
+    if (process.env.NODE_ENV === 'development') {
+      console.log("🔗 Booking button clicked - Opening:", calendlyUrl);
+    }
+    
+    // Enhanced window.open with better security and fallback
+    try {
+      const newWindow = window.open(calendlyUrl, '_blank', 'noopener,noreferrer');
+      
+      // Fallback if popup is blocked
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        // Redirect current page as fallback
+        window.location.href = calendlyUrl;
+      }
+    } catch (error) {
+      // Final fallback - redirect current page
+      window.location.href = calendlyUrl;
+    }
+  };
+
+  // Add aria-label for accessibility
+  const getAriaLabel = () => {
+    return buttonText.includes('Consultation') 
+      ? 'Schedule a therapy consultation' 
+      : `Book ${buttonText.toLowerCase()}`;
   };
 
   return (
     <button 
       onClick={handleClick}
       className={className}
+      aria-label={getAriaLabel()}
+      // Add proper button attributes
+      type="button"
+      role="button"
     >
       {buttonText}
     </button>
